@@ -73,22 +73,4 @@ int main (int argc, char *argv[])
     return 0;
 }
 
-// 基本思想：比较相邻的两个数，如果前者比后者大，则进行交换。每一轮排序结束，选出一个未排序中最大的数放到数组后面。
-// 冒泡排序算法
-void bubbleSort (int *arr, int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - 1 - i ; j++) {
-            // 如果前面的数比后面大，进行交换
-            if (arr[j] > arr[j + 1]) {
-                int temp   = arr[j];
-                arr[j]     = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
-
-
-
-
 /* end of file */
