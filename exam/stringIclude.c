@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// 若A的所有字符包含在B里面 则为真
+
 int main (int argc, char *argv[])
 {
     char a[100] = {0};
@@ -9,7 +11,7 @@ int main (int argc, char *argv[])
     int   i = 0, n = 0;
     int   a_int = 0, b_int = 0, c_int = 0;
 
-    scanf("%s%s", &a, &b);
+    scanf("%s %s", &a, &b);
 
     if ((strlen(a) < 5) || (strlen(b) < 5)) {
         printf("Less than 5 characters.\n");
