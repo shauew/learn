@@ -45,6 +45,7 @@ int main (int argc, char *argv[])
 
         while ((s[index] >= '0') && (s[index] <= '9')) {
             part[i].repeat = part[i].repeat * 10 + s[index] - '0';
+            s[index] = '\0';    // 用过的数字清除，避免后续字符比较时越界
             index++;
         }
         //printf("out2\n");
@@ -63,22 +64,24 @@ int main (int argc, char *argv[])
         for (j = 0; j < count - 1 - i ; j++) {
             // 如果前面的数比后面大，进行交换
             // 因为间隔为数字，所以可以这样比较，即使字符串相同，也可由重复次数来协助判断顺序
-            if (strcmp(part[j].start, part[j + 1].start)) {
+            // 数字不能参加运算，否则会导致比较失败
+            if ((part[j].repeat > part[j + 1].repeat)) {                // 重复次数多的靠后排
                 string_part_t temp   = part[j];
-                part[j]     = part[j + 1];
-                part[j + 1] = temp;
+                part[j]              = part[j + 1];
+                part[j + 1]          = temp;
+            } else if (part[j].repeat == part[j + 1].repeat) {          // 重复次数相同的作字符大小比较
+                if (strcmp(part[j].start, part[j + 1].start) > 0) {
+                    string_part_t temp   = part[j];
+                    part[j]              = part[j + 1];
+                    part[j + 1]          = temp;
+                }
             }
         }
     }
 
     // 由低到高检索输出指定字符串
-    for (j = 1; j < 100; j++) {
-        //printf("len %d repeat %d\n", part[i].len, part[i].repeat);
-        for (i = 0; i < count; i++) {
-            if (j == part[i].repeat) {
-                kprintf(part[i].start, part[i].len, part[i].repeat);
-            }
-        }
+    for (i = 0; i < count; i++) {
+        kprintf(part[i].start, part[i].len, part[i].repeat);
     }
 
     return 0;
