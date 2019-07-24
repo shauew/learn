@@ -11,7 +11,7 @@ int main (int argc, char *argv[])
     int   i = 0, n = 0;
     int   a_int = 0, b_int = 0, c_int = 0;
 
-    scanf("%s%s", &a, &b);
+    scanf("%s %s", &a, &b);
     printf("a=%s b=%s\n", a, b);
     printf("alen=%d blen=%d\n", strlen(a), strlen(b));
     for (i = 0; i < strlen(a); i++) {
