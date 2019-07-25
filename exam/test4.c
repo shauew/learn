@@ -33,6 +33,11 @@ void fix_output (char *s)
     int n = len % 8;
     int i;
 
+    // 空字符串不处理
+    if (s[0] == '\0') {
+        return;
+    }
+
     for (i = 0; i < m; i++) {
         kprintf(&s[i], 8);
         putchar('\n');
@@ -50,8 +55,8 @@ int main ()
     char s1[100] = {0};
     char s2[100] = {0};
 
-    scanf("%s", &s1);
-    scanf("%s", &s2);
+    gets(s1);
+    gets(s2);
 
     fix_output(s1);
     fix_output(s2);

@@ -27,27 +27,45 @@ int may_pow (int a, int b)
     return ret;
 }
 
+// int main ()
+// {
+//     int m = 0, n = 0, temp = 0, flag = 0, i = 0, n1 = 0;
+
+//     scanf("%d", &m);
+
+//     while (m) {
+
+//         temp = m % 10;
+
+//         // 把0~9数字全部取尽即可
+//         if (!((1 << temp) & flag)) {
+//             //n = n + (temp * (int)may_pow(10, i++));
+//             n = n * 10 + temp;
+//             flag |= (1 << temp);
+//         }
+
+//         m = m / 10;
+//     }
+
+//     printf("%d", n);
+
+//     return 0;
+// }
+
 int main ()
 {
-    int m = 0, n = 0, temp = 0, flag = 0, i = 0, n1 = 0;
+    int m = 0, n = 0, temp = 0, flag[9] = {0};
 
     scanf("%d", &m);
 
     while (m) {
-
         temp = m % 10;
-
-        // 把0~9数字全部取尽即可
-        if (!((1 << temp) & flag)) {
-            //n = n + (temp * (int)may_pow(10, i++));
-            n = n * 10 + temp;
-            flag |= (1 << temp);
+        if (flag[temp] == 0) {      // 把0~9数字全部取尽即可
+            putchar(temp + '0');
+            flag[temp] = 1;
         }
-
         m = m / 10;
     }
-
-    printf("%d", n);
 
     return 0;
 }
