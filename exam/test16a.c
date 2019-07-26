@@ -27,8 +27,8 @@ int knapsack (int v[], int w[], int bag, int n)
 
 int main ()
 {
-    int v[MAX_M], w[MAX_M], bag, n, i;
-    scanf("%d%d", &w, &n);
+    int v[MAX_N], w[MAX_M], bag, n, i;
+    scanf("%d%d", &bag, &n);
     for (i = 1; i <= n; i++) {
         scanf("%d%d", &v[i], &w[i]);
     }
