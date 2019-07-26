@@ -12,7 +12,7 @@
 // 冒泡排序算法
 void bubble_sort (int *arr, int n) {
     for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - 1 - i ; j++) {
+        for (int j = 0; j < n - 1 - i; j++) {
             // 如果前面的数比后面大，进行交换
             if (arr[j] > arr[j + 1]) {
                 int temp   = arr[j];
